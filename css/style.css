@@ -5,12 +5,28 @@
     --dark-gray: #2f2f2f;
     --light-gray: #dce5e4;
     --soft-white: #eff2f1;
+    --transition-base: .3s all ease;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    color: #2f2f2f;
+    color: var(--dark-gray);
+}
+
+/* --- Shared Section Styles --- */
+.why-choose-section, 
+.design-help-section, 
+.team-section, 
+.testimonial-section, 
+.services-section {
+    padding: 100px 0;
+}
+
+.hero-section, 
+.product-section, 
+.featured-row-section {
+    padding: 80px 0;
 }
 
 /* --- Navbar Section --- */
@@ -27,7 +43,7 @@ body {
 .nav-link {
     color: rgba(255, 255, 255, 0.7) !important;
     border-bottom: 4px solid transparent;
-    transition: .3s all ease;
+    transition: var(--transition-base);
     padding-bottom: 5px !important;
 }
 
@@ -37,18 +53,34 @@ body {
     border-bottom: 4px solid var(--brand-yellow) !important;
 }
 
+/* --- Buttons --- */
+.btn-yellow, 
+.btn-outline-white {
+    border-radius: 30px;
+    padding: 12px 30px;
+    transition: var(--transition-base);
+}
+
+.btn-yellow {
+    background: var(--brand-yellow);
+    border: 1px solid var(--brand-yellow);
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.btn-outline-white {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
 /* --- Hero Section --- */
 .hero-section {
     background: var(--brand-green);
     color: #fff;
-    padding: 80px 0;
 }
 
 .hero-img-wrap {
-    background-image: url('../images/dots-light.svg');
-    background-position: 100% 0%;
-    background-size: 255px;
-    background-repeat: no-repeat;
+    background: url('../images/dots-light.svg') 100% 0% / 255px no-repeat;
     position: relative;
     z-index: 1;
 }
@@ -58,37 +90,16 @@ body {
     z-index: 2;
 }
 
-.btn-yellow {
-    background: var(--brand-yellow);
-    border: 1px solid var(--brand-yellow);
-    border-radius: 30px;
-    padding: 12px 30px;
-    font-weight: 600;
-    color: var(--dark-gray);
-}
-
-.btn-outline-white {
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    border-radius: 30px;
-    padding: 12px 30px;
-}
-
 /* --- Products Section --- */
-.product-section {
-    padding: 80px 0;
-}
-
 .product-item {
     text-align: center;
     text-decoration: none;
-    color: #000;
     display: block;
     position: relative;
     margin-bottom: 50px;
     cursor: pointer;
     padding-bottom: 20px;
-    transition: .3s all ease;
+    transition: var(--transition-base);
 }
 
 .product-img-wrap {
@@ -101,7 +112,7 @@ body {
     max-width: 100%;
     position: relative;
     z-index: 2;
-    transition: .3s all ease;
+    transition: var(--transition-base);
 }
 
 .product-img-wrap::before {
@@ -116,17 +127,19 @@ body {
     z-index: 1;
     opacity: 0;
     visibility: hidden;
-    transition: .3s all ease;
+    transition: var(--transition-base);
 }
 
-.product-item h3, .product-title {
+.product-item h3, 
+.product-title {
     font-size: 1rem;
     font-weight: 700;
     color: var(--dark-gray);
     margin-bottom: 10px;
 }
 
-.product-price, .product-item strong {
+.product-price, 
+.product-item strong {
     font-weight: 800;
     font-size: 1.1rem;
     color: var(--dark-gray);
@@ -170,29 +183,17 @@ body {
     bottom: 0; 
 }
 
-/* --- Why Choose Us Section --- */
-.why-choose-section {
-    padding: 100px 0;
-    background: #fff;
-}
-
-.why-choose-section h2 {
-    color: var(--dark-gray);
-    font-weight: 700;
-    font-size: 2.2rem;
-}
-
-.feature {
-    margin-bottom: 40px;
-}
-
-.feature .icon-container {
+/* --- Shared Icon Decoration (Why Choose & Services) --- */
+.feature .icon-container,
+.service-item .icon-container {
     display: inline-block;
     position: relative;
     margin-bottom: 20px;
+    z-index: 1;
 }
 
-.feature .icon-container::after {
+.feature .icon-container::after,
+.service-item .icon-container::after {
     content: "";
     width: 35px;
     height: 35px;
@@ -204,17 +205,30 @@ body {
     z-index: -1;
 }
 
-.feature h3 {
+.feature h3, 
+.service-item h3 {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--dark-gray);
     margin-bottom: 8px;
 }
 
-.feature p {
+.feature p, 
+.service-item p {
     font-size: 0.85rem;
     color: #6a6a6a;
     line-height: 1.6;
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-section {
+    background: #fff;
+}
+
+.why-choose-section h2 {
+    color: var(--dark-gray);
+    font-weight: 700;
+    font-size: 2.2rem;
 }
 
 .why-choose-img-wrap {
@@ -239,10 +253,6 @@ body {
 }
 
 /* --- Design Help Section --- */
-.design-help-section {
-    padding: 100px 0;
-}
-
 .img-grid-wrap {
     position: relative;
     display: grid;
@@ -322,7 +332,6 @@ body {
 
 /* --- Featured Section --- */
 .featured-row-section {
-    padding: 80px 0;
     background: var(--soft-white);
 }
 
@@ -385,10 +394,6 @@ body {
 }
 
 /* --- Team Section --- */
-.team-section {
-    padding: 100px 0;
-}
-
 .team-member {
     margin-bottom: 50px;
 }
@@ -400,22 +405,24 @@ body {
     font-size: 1.2rem;
 }
 
+.team-member .position,
+.team-member .bio {
+    color: #6a6a6a;
+}
+
 .team-member .position {
     display: block;
-    color: #6a6a6a;
     font-size: 0.85rem;
     margin-bottom: 15px;
 }
 
 .team-member .bio {
-    color: #6a6a6a;
     font-size: 0.9rem;
     line-height: 1.7;
 }
 
 /* --- Testimonials Section --- */
 .testimonial-section {
-    padding: 100px 0;
     background-color: #ffffff;
 }
 
@@ -635,48 +642,6 @@ body {
     margin-left: 20px;
 }
 
-/* --- Services Section --- */
-.services-section {
-    padding: 100px 0;
-    background-color: #ffffff;
-}
-
-.service-item {
-    margin-bottom: 50px;
-}
-
-.service-item .icon-container {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 25px;
-    z-index: 1;
-}
-
-.service-item .icon-container::after {
-    content: "";
-    width: 35px;
-    height: 35px;
-    background-color: #dce5e4;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -5px;
-    right: -10px;
-    z-index: -1;
-}
-
-.service-item h3 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #2f2f2f;
-    margin-bottom: 10px;
-}
-
-.service-item p {
-    font-size: 0.85rem;
-    color: #6a6a6a;
-    line-height: 1.6;
-}
-
 /* --- Responsive Layout Rules --- */
 @media (min-width: 992px) {
     .navbar-nav { flex-direction: row !important; }
@@ -684,9 +649,14 @@ body {
 }
 
 @media (max-width: 991px) {
-    .hero-section, .why-choose-section, .design-help-section, 
-    .newsletter-only-section, .team-section, .testimonial-section, 
-    .main-footer, .services-section { 
+    .hero-section, 
+    .why-choose-section, 
+    .design-help-section, 
+    .newsletter-only-section, 
+    .team-section, 
+    .testimonial-section, 
+    .main-footer, 
+    .services-section { 
         text-align: center; 
     }
 
@@ -710,7 +680,8 @@ body {
         flex-direction: column;
     }
 
-    .newsletter-only-section h4, .newsletter-only-section .row {
+    .newsletter-only-section h4, 
+    .newsletter-only-section .row {
         justify-content: center;
     }
 
